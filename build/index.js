@@ -75,15 +75,6 @@ async function main() {
     }
 }
 /**
- * Calculates and displays the execution time of a function
- * @param sortMethod The name of the function that was executed
- * @param start The start time (taken just before the function executed) in ms
- * @param end The end time(taken just after the function executed) in ms
- */
-function printResults(sortMethod, start, end) {
-    console.log(`  ${sortMethod} sort took ${(end - start).toFixed(4)} ms to execute`);
-}
-/**
  * Sorts a given array using a given sorting method
  * @param array An array of numbers to be sorted
  * @param method The sorting method to be used
@@ -96,6 +87,15 @@ function runSort(array, method) {
     const end = performance.now();
     // printResults(method.name, start, end);
     return [method.name, start, end];
+}
+/**
+ * Calculates and displays the execution time of a function
+ * @param sortMethod The name of the function that was executed
+ * @param start The start time (taken just before the function executed) in ms
+ * @param end The end time(taken just after the function executed) in ms
+ */
+function printResults(sortMethod, start, end) {
+    console.log(`  ${sortMethod} sort took ${(end - start).toFixed(4)} ms to execute`);
 }
 main().catch(error => console.error('Unhandled error:', error));
 //# sourceMappingURL=index.js.map
