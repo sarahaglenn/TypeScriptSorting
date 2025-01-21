@@ -1,1 +1,1 @@
-{"version":3,"file":"personHandler.js","sourceRoot":"","sources":["../../src/classes/personHandler.ts"],"names":[],"mappings":";;;AAKA,MAAa,aAAa;IACxB,gBAAe,CAAC;IAChB;;;;;OAKG;IACH,aAAa,CAAC,MAAc;QAC1B,OAAO,iCAAiC,MAAM,CAAC,SAAS,IAAI,MAAM,CAAC,QAAQ,EAAE,CAAC;IAChF,CAAC;CACF;AAXD,sCAWC"}
+{"version":3,"file":"personHandler.js","sourceRoot":"","sources":["../../src/classes/personHandler.ts"],"names":[],"mappings":";;;AAKA,MAAa,aAAa;IACxB,gBAAe,CAAC;IAChB;;;;;OAKG;IACH,aAAa,CAAC,MAAc;QAC1B,OAAO,0BAA0B,MAAM,CAAC,SAAS,IAAI,MAAM,CAAC,QAAQ,EAAE,CAAC;IACzE,CAAC;CACF;AAXD,sCAWC"}

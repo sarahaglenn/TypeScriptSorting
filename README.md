@@ -1,12 +1,12 @@
 # Overview
 
-This project
-- implements a simple "Hello World" type function
-- defines sorting algorithms using 4 different strategies
-- fetches population data
-- measures the execution time of each sorting strategy to measure different data sets
+This project:
+- Implements a basic "Hello World" function
+- Defines sorting algorithms using 4 different strategies
+- Retrieves population data from external source
+- Measures the execution time of each sorting strategy across various data sets
 
-The purpose in writing this project was to learn to use functions and classes in TypeScript. It was also to understand the differences between JavaScript and TypeScript so that I am proficient in elevating JavaScript to TypeScript in future projects.
+The goal of this project was practice using functions and classes in TypeScript, as well as to gain an understanding of the main differences between JavaScript and TypeScript. This knowledge will help me effectively transition JavaScript code to TypeScript in future projects.
 
 [Software Demo Video](http://youtube.link.goes.here)
 {focus on what i learned about language syntax! 4-5 min walkthrough}

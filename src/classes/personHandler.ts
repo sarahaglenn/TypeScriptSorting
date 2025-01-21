@@ -12,6 +12,6 @@ export class PersonHandler {
    * @returns A welcome message
    */
   welcomePerson(person: Person): string {
-    return `Welcome to Visual Studio Code ${person.firstName} ${person.lastName}`;
+    return `Welcome to TypeScript, ${person.firstName} ${person.lastName}`;
   }
 }

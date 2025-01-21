@@ -34,29 +34,19 @@ async function main() {
     145209, 793210, 458731, 934862, 682140, 1253491,
   ];
 
-  /**
-   * Sorts a given array using a given sorting method
-   * @param array An array of numbers to be sorted
-   * @param method The sorting method to be used
-   */
-  function calculateSort(array: Array<number>, method: Function) {
-    const start = performance.now();
-    method(array);
-    const end = performance.now();
-    printResults(method.name, start, end);
-  }
   console.log('Sorting 200 integers between 0 and 20');
-  calculateSort(largeArray, dataHandler.selectionSort);
-  calculateSort(largeArray, dataHandler.bubbleSort);
-  calculateSort(largeArray, dataHandler.countingSort);
-  calculateSort(largeArray, dataHandler.insertionSort);
-  console.log('Sorting 15 fake populations');
-  calculateSort(populationArray, dataHandler.selectionSort);
-  calculateSort(populationArray, dataHandler.bubbleSort);
-  calculateSort(populationArray, dataHandler.countingSort);
-  calculateSort(populationArray, dataHandler.insertionSort);
+  printResults(...runSort(largeArray, dataHandler.selectionSort));
+  printResults(...runSort(largeArray, dataHandler.bubbleSort));
+  printResults(...runSort(largeArray, dataHandler.countingSort));
+  printResults(...runSort(largeArray, dataHandler.insertionSort));
 
-  // Retrieve population data for 50 cities
+  console.log('Sorting 15 fake populations');
+  printResults(...runSort(populationArray, dataHandler.selectionSort));
+  printResults(...runSort(populationArray, dataHandler.bubbleSort));
+  printResults(...runSort(populationArray, dataHandler.countingSort));
+  printResults(...runSort(populationArray, dataHandler.insertionSort));
+
+  // Retrieve population data for 50 locations
   let url =
     'https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL/?format=json&per_page=50&date=2020';
   try {
@@ -66,13 +56,13 @@ async function main() {
     // console.log(populations);
 
     console.log('Sorting 50 real populations');
-    calculateSort(populations, dataHandler.selectionSort);
-    calculateSort(populations, dataHandler.bubbleSort);
-    calculateSort(populations, dataHandler.insertionSort);
+    printResults(...runSort(populations, dataHandler.selectionSort));
+    printResults(...runSort(populations, dataHandler.bubbleSort));
+    printResults(...runSort(populations, dataHandler.insertionSort));
   } catch (error) {
     console.log(error);
   }
-  // Retrieve population data
+  // Retrieve population data for 17,000 locations
   url =
     'https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL/?format=json&per_page=17000&date=2020';
   try {
@@ -82,18 +72,41 @@ async function main() {
     // console.log(populations);
 
     console.log('Sorting 17000 real populations');
-    calculateSort(populations, dataHandler.selectionSort);
-    calculateSort(populations, dataHandler.bubbleSort);
-    calculateSort(populations, dataHandler.insertionSort);
+    printResults(...runSort(populations, dataHandler.selectionSort));
+    printResults(...runSort(populations, dataHandler.bubbleSort));
+    printResults(...runSort(populations, dataHandler.insertionSort));
   } catch (error) {
     console.log(error);
   }
 }
 
-main().catch(error => console.error('Unhandled error:', error));
-
+/**
+ * Calculates and displays the execution time of a function
+ * @param sortMethod The name of the function that was executed
+ * @param start The start time (taken just before the function executed) in ms
+ * @param end The end time(taken just after the function executed) in ms
+ */
 function printResults(sortMethod: string, start: number, end: number) {
   console.log(
     `  ${sortMethod} sort took ${(end - start).toFixed(4)} ms to execute`,
   );
 }
+/**
+ * Sorts a given array using a given sorting method
+ * @param array An array of numbers to be sorted
+ * @param method The sorting method to be used
+ * @returns An array containing the name of the method used, the time before
+ * the function execution in ms and the time after the function execution in ms
+ */
+function runSort(
+  array: Array<number>,
+  method: Function,
+): [string, number, number] {
+  const start = performance.now();
+  method(array);
+  const end = performance.now();
+  // printResults(method.name, start, end);
+  return [method.name, start, end];
+}
+
+main().catch(error => console.error('Unhandled error:', error));

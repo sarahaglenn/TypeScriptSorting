@@ -10,7 +10,7 @@ class PersonHandler {
      * @returns A welcome message
      */
     welcomePerson(person) {
-        return `Welcome to Visual Studio Code ${person.firstName} ${person.lastName}`;
+        return `Welcome to TypeScript, ${person.firstName} ${person.lastName}`;
     }
 }
 exports.PersonHandler = PersonHandler;

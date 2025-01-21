@@ -1,4 +1,3 @@
-require('dotenv').config();
 // World Bank API data return format
 interface MetaData {
   page: number;
@@ -99,12 +98,17 @@ export class DataHandler {
     }
     const length: number = array.length;
     for (let i = 0; i < length - 1; i++) {
+      // assume this item is the smallest
       let minIndex = i;
+      // look through the rest of the array (unsorted) for
+      // anything smaller
       for (let j = i + 1; j < length; j++) {
         if (array[j] < array[minIndex]) {
+          // found a new smallest item
           minIndex = j;
         }
       }
+      // move the smallest element to the beginning of the unsorted section
       [array[i], array[minIndex]] = [array[minIndex], array[i]];
     }
     return array;
@@ -121,6 +125,8 @@ export class DataHandler {
     const length: number = array.length;
     for (let i = 0; i < length - 1; i++) {
       for (let j = 0; j < length - i - 1; j++) {
+        //compare two adjacent elements
+        // if the one to the right is smaller, swap them
         if (array[j] > array[j + i]) {
           [array[j], array[j + 1]] = [array[j + 1], array[j]];
         }
