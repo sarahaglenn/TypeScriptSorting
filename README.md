@@ -8,8 +8,7 @@ This project:
 
 The goal of this project was practice using functions and classes in TypeScript, as well as to gain an understanding of the main differences between JavaScript and TypeScript. This knowledge will help me effectively transition JavaScript code to TypeScript in future projects.
 
-[Software Demo Video](http://youtube.link.goes.here)
-{focus on what i learned about language syntax! 4-5 min walkthrough}
+[Software Demo Video](https://youtu.be/16x3Lz-8_nQ)
 
 # Development Environment
 
